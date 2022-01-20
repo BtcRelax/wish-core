@@ -1,0 +1,17 @@
+{
+    "name": "god/wish-core",
+    "require": {
+        "guzzlehttp/guzzle": "^7.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "God\\WishCore\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "godJah",
+            "email": "43356590+stgodjah@users.noreply.github.com"
+        }
+    ]
+}
