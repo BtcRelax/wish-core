@@ -18,5 +18,21 @@ final class KunaAdapter {
         };
       }
 
+    
+    // Check are kunacode is active,
+    // if so, return amount of money
+    function checkKunacode($kunacode) {
+
+    }
+
+    // Activate kunacode. Return amount of money in success
+    function activateKunacode($kunacode) {
+
+    }
+
+    // Find with regexp if input data have kunacode's inside?
+    // If exists, return array of founded codes
+    function isKunaCodeExists($rawinput) {
+
+    }
 }
-?>

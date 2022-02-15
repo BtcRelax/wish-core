@@ -13,5 +13,8 @@
             "name": "godJah",
             "email": "43356590+stgodjah@users.noreply.github.com"
         }
-    ]
+    ],
+    "require-dev": {
+        "php-cs-fixer/diff": "^2.0"
+    }
 }
