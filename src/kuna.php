@@ -1,6 +1,7 @@
 <?php
 namespace BtcRelax;
 
+//require '../vendor/autoload.php';
 use GuzzleHttp\Client;
 
 final class KunaAdapter {
