@@ -1,10 +1,6 @@
 <?php
+include_once  'kuna.php';
 
-use BtcRelax\KunaApi;
-
-if ( isset($_REQUEST['kunacode']) ) {
-  $kunaApi = new BtcRelax\KunaApi();
-
-}
+$adapter = new BtcRelax\KunaAdapter('app.fastfen.me');
 
 ?>
