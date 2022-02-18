@@ -7,19 +7,48 @@ use GuzzleHttp\Client;
 final class KunaAdapter {
 
     private $client;
+    private $kunaid = null;
+    private $error = null;
+    private $server = null;
 
     function __construct( $server, $port = 80 ) {
-      $this->client = new Client([ 'base_uri' => \sprintf("http://%s:%s/api/", $server, $port ), 'timeout'  => 2.0,]);
-      $response = $this->client->request('GET', 'kuna/me');
-      if ($response->getStatusCode() === 200 )
-        {
+      $this->server = $server;
+      $this->client = new Client([ 'http_errors' => false, 'base_uri' => \sprintf("http://%s:%s/api/", $server, $port ), 'timeout'  => 2.0,]);
+      try {
+        $response = $this->client->request('GET', 'kuna/me');
+        if ($response->getStatusCode() === 200 )
+          {
+            $body = $response->getBody();
+            $data = \json_decode($body, true)['me'];
+            $this->kunaid = $data['kunaid'];
+          } else {
+            $this->error = \sprintf("Error result from method me:%s", $response->getStatusCode() );
+          }
+        }
+      catch (\Exception $ex) {
+        $this->error = \sprintf("Error:%s", $ex->getMessage());
+      } 
+}
 
-        } else {
-          throw new \Exception("Error init kuna adapter");
-        };
-      }
 
-    
+public function getKunaId()
+{
+    return $this->kunaid;
+}
+
+public function getError()
+{
+    return $this->error;
+}
+
+public function getServer()
+{
+    return $this->server;
+}
+
+
+
+
     // Check are kunacode is active,
     // if so, return amount of money
     function checkKunacode($kunacode) {
