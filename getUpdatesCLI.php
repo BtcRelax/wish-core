@@ -2,13 +2,13 @@
 <?php
 require __DIR__ . '/vendor/autoload.php';
 
-$bot_api_key  = 'your:bot_api_key';
-$bot_username = 'username_bot';
+$bot_api_key  = '5256064377:AAFPySqw6zrcsko2LvQnVDk8ZpB1GJI6reI';
+$bot_username = 'FenMasterBot';
 $mysql_credentials = [
    'host'     => 'localhost',
-   'user'     => 'dbuser',
-   'password' => 'dbpass',
-   'database' => 'dbname',
+   'user'     => 'telega',
+   'password' => 'telega',
+   'database' => 'telega',
 ];
 
 try {
